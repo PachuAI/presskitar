@@ -1,10 +1,12 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import Stripe from 'stripe';
+// STRIPE DISABLED
+// import Stripe from 'stripe';
 import { supabaseAdmin } from '@/utils/supabase-admin';
 import { withCors } from '@/utils/cors';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+// STRIPE DISABLED
+// const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
 export const DELETE = withCors(async function DELETE(request: NextRequest) {
   try {
@@ -17,26 +19,27 @@ export const DELETE = withCors(async function DELETE(request: NextRequest) {
 
     console.log('Starting account soft-deletion for user:', userId);
 
+    // STRIPE DISABLED - Skip Stripe subscription cancellation
     // 1. Cancel Stripe subscriptions if they exist
-    const { data: subscriptionsData, error: subError } = await supabaseAdmin
-      .from('subscriptions')
-      .select('stripe_subscription_id, status')
-      .eq('user_id', userId);
+    // const { data: subscriptionsData, error: subError } = await supabaseAdmin
+    //   .from('subscriptions')
+    //   .select('stripe_subscription_id, status')
+    //   .eq('user_id', userId);
 
-    if (subError) {
-      console.error('Subscription fetch error:', subError);
-    } else if (subscriptionsData) {
-      for (const sub of subscriptionsData) {
-        if (sub.stripe_subscription_id && (sub.status === 'active' || sub.status === 'trialing')) {
-          try {
-            await stripe.subscriptions.cancel(sub.stripe_subscription_id);
-            console.log('Stripe subscription cancelled:', sub.stripe_subscription_id);
-          } catch (stripeError) {
-            console.error('Stripe cancellation error:', stripeError);
-          }
-        }
-      }
-    }
+    // if (subError) {
+    //   console.error('Subscription fetch error:', subError);
+    // } else if (subscriptionsData) {
+    //   for (const sub of subscriptionsData) {
+    //     if (sub.stripe_subscription_id && (sub.status === 'active' || sub.status === 'trialing')) {
+    //       try {
+    //         await stripe.subscriptions.cancel(sub.stripe_subscription_id);
+    //         console.log('Stripe subscription cancelled:', sub.stripe_subscription_id);
+    //       } catch (stripeError) {
+    //         console.error('Stripe cancellation error:', stripeError);
+    //       }
+    //     }
+    //   }
+    // }
 
     // 2. Soft delete the profile
     const { error: profileError } = await supabaseAdmin
