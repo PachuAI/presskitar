@@ -7,23 +7,25 @@
 
 ## 🔥 Inmediato (Siguiente Sesión)
 
-### 1. Ejecutar `/fase start` para iniciar Fase 0
+### 1. Implementar Subtarea 1 de Fase 0
 
-**La Fase 0 incluye:**
-- Setup de Next.js 14 con App Router
-- Configuración de Supabase (proyecto + variables de entorno)
-- Instalación de dependencias base
-- Verificación de build exitoso
+**Buscar y seleccionar boilerplate Next.js 14 + Supabase**
 
-**Comando a ejecutar:**
-```
-/fase start
-```
+Requisitos del boilerplate:
+- Next.js 14 con App Router
+- TypeScript configurado
+- shadcn/ui compatible o pre-instalado
+- OAuth pre-configurado o fácil de integrar
 
-Esto generará automáticamente:
-- `docs/fases/FASE_0_breakdown.md` con subtareas detalladas
-- TodoList con todas las subtareas
-- Actualización de memoria/estado.md
+Opciones a evaluar:
+1. `launch-mvp-stripe-nextjs-supabase` (ya documentado en ADR)
+2. Otros boilerplates populares en GitHub
+
+**Documento de referencia:**
+Ver `docs/ADR/boilerplate-elegido.md` para decisión previa
+
+**Breakdown completo:**
+Ver `docs/fases/FASE_0_breakdown.md` para todas las subtareas
 
 ---
 

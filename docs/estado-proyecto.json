@@ -4,7 +4,7 @@
   "fase_actual": 0,
   "hito_actual": 1,
   "fecha_inicio_proyecto": "2025-09-30",
-  "fecha_inicio_fase": null,
+  "fecha_inicio_fase": "2025-09-30",
   "fases_completadas": [],
   "hitos_completados": [],
   "notas": "Sistema de gestión de fases - Plan de Implementación v1.2"
