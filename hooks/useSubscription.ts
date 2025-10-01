@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
-import debounce from 'lodash/debounce';
+// import debounce from 'lodash/debounce'; // STRIPE DISABLED
 
 export interface Subscription {
   id: string;
@@ -86,42 +86,44 @@ export function useSubscription() {
     );
   }, []);
 
-  const MAX_SYNC_RETRIES = 3;
-  const [syncRetries, setSyncRetries] = useState(0);
+  // STRIPE DISABLED - Usar MercadoPago en el futuro
+  // const MAX_SYNC_RETRIES = 3;
+  // const [syncRetries, setSyncRetries] = useState(0);
 
-  const debouncedSyncWithStripe = useCallback(
-    debounce(async (subscriptionId: string) => {
-      if (syncRetries >= MAX_SYNC_RETRIES) {
-        console.log('Max sync retries reached');
-        return;
-      }
+  // const debouncedSyncWithStripe = useCallback(
+  //   debounce(async (subscriptionId: string) => {
+  //     if (syncRetries >= MAX_SYNC_RETRIES) {
+  //       console.log('Max sync retries reached');
+  //       return;
+  //     }
 
-      try {
-        const response = await fetch('/api/stripe/sync', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ subscriptionId }),
-        });
-        
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.details || 'Failed to sync with Stripe');
-        }
-        
-        await fetchSubscription();
-        setSyncRetries(0); // Reset retries on success
-      } catch (error) {
-        console.error('Error syncing with Stripe:', error);
-        setError(error instanceof Error ? error.message : 'Failed to sync with Stripe');
-        setSyncRetries(prev => prev + 1);
-      }
-    }, 30000), // 30 second delay between calls
-    [fetchSubscription, syncRetries]
-  );
+  //     try {
+  //       const response = await fetch('/api/stripe/sync', {
+  //         method: 'POST',
+  //         headers: { 'Content-Type': 'application/json' },
+  //         body: JSON.stringify({ subscriptionId }),
+  //       });
+
+  //       if (!response.ok) {
+  //         const errorData = await response.json();
+  //         throw new Error(errorData.details || 'Failed to sync with Stripe');
+  //       }
+
+  //       await fetchSubscription();
+  //       setSyncRetries(0); // Reset retries on success
+  //     } catch (error) {
+  //       console.error('Error syncing with Stripe:', error);
+  //       setError(error instanceof Error ? error.message : 'Failed to sync with Stripe');
+  //       setSyncRetries(prev => prev + 1);
+  //     }
+  //   }, 30000), // 30 second delay between calls
+  //   [fetchSubscription, syncRetries]
+  // );
 
   const syncWithStripe = useCallback((subscriptionId: string) => {
-    debouncedSyncWithStripe(subscriptionId);
-  }, [debouncedSyncWithStripe]);
+    // STRIPE DISABLED - No-op
+    console.log('Stripe sync disabled');
+  }, []);
 
   useEffect(() => {
     if (!user) return;
@@ -151,28 +153,27 @@ export function useSubscription() {
     };
   }, [user, supabase, checkValidSubscription]);
 
-  useEffect(() => {
-    let timeoutId: NodeJS.Timeout;
-    
-    if (subscription?.stripe_subscription_id) {
-      // Add a delay before first sync
-      timeoutId = setTimeout(() => {
-        syncWithStripe(subscription.stripe_subscription_id);
-      }, 1000);
-    }
-
-    return () => {
-      if (timeoutId) clearTimeout(timeoutId);
-    };
-  }, [syncWithStripe, subscription?.stripe_subscription_id]);
+  // STRIPE DISABLED - No auto-sync
+  // useEffect(() => {
+  //   let timeoutId: NodeJS.Timeout;
+  //
+  //   if (subscription?.stripe_subscription_id) {
+  //     // Add a delay before first sync
+  //     timeoutId = setTimeout(() => {
+  //       syncWithStripe(subscription.stripe_subscription_id);
+  //     }, 1000);
+  //   }
+  //
+  //   return () => {
+  //     if (timeoutId) clearTimeout(timeoutId);
+  //   };
+  // }, [syncWithStripe, subscription?.stripe_subscription_id]);
 
   return {
     subscription,
     isLoading: loading,
     error,
-    syncWithStripe: useCallback((subscriptionId: string) => {
-      debouncedSyncWithStripe(subscriptionId);
-    }, [debouncedSyncWithStripe]),
+    syncWithStripe, // STRIPE DISABLED - No-op function
     fetchSubscription // Expose fetch function for manual refresh
   };
 } 

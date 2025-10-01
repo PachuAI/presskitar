@@ -9,10 +9,10 @@ import { AccountManagement } from '@/components/AccountManagement';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Suspense } from 'react';
 import LoadingSpinner from '@/components/LoadingSpinner';
-import { StripeBuyButton } from '@/components/StripeBuyButton';
+// STRIPE DISABLED
+// import { StripeBuyButton } from '@/components/StripeBuyButton';
 import { useTrialStatus } from '@/hooks/useTrialStatus';
 // import { PricingSection } from '@/components/PricingSection';
-// import { StripeBuyButton } from '@/components/StripeBuyButton';
 
 function ProfileContent() {
   const { user } = useAuth();
@@ -239,11 +239,12 @@ function ProfileContent() {
               ) : (
                 <p>Subscribe to unlock the amazing cooking experience.</p>
               )}
-              
-              <StripeBuyButton
+
+              {/* STRIPE DISABLED */}
+              {/* <StripeBuyButton
                 buyButtonId={process.env.NEXT_PUBLIC_STRIPE_BUTTON_ID || ''}
                 publishableKey={process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ''}
-              />
+              /> */}
             </div>
           )}
         </div>
