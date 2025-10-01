@@ -7,49 +7,36 @@
 
 ## 🔥 Inmediato (Siguiente Sesión)
 
-### 1. Completar Commit Pendiente ⚠️
+### 1. Verificar Deploy de Vercel ✅
 
-**CRÍTICO**: Hay archivos en staging sin commitear
+**El build está corriendo ahora mismo**
 
-```bash
-# Ver archivos en staging
-git status
+Pasos:
+1. Ir a https://vercel.com/ y ver tu proyecto
+2. Verificar que el build pase exitosamente
+3. Click en el deployment para ver los logs
+4. Copiar la URL de producción (ej: `https://presskitar.vercel.app`)
+5. Probar el sitio en el navegador
 
-# Completar commit
-git commit -m "feat(fase-0): integrar boilerplate launch-mvp-stripe-nextjs-supabase"
-
-# Push a remote
-git push origin main
-```
-
-**Archivos en staging:**
-- Toda la estructura del boilerplate (app/, components/, etc.)
-- docs/fases/FASE_0_breakdown.md (nuevo)
-- docs/estado-proyecto.json (actualizado)
-- memoria/estado.md (actualizado)
-- memoria/proximos-pasos.md (actualizado)
+**Si el build falla:**
+- Ver logs de error en Vercel
+- Verificar que todas las variables de entorno estén configuradas
+- Chequear console de Vercel para warnings
 
 ---
 
-### 2. Implementar Subtarea 2 de Fase 0
+### 2. Decidir sobre Subtareas Opcionales
 
-**Crear proyecto en Vercel y conectar con GitHub**
+**Subtarea 4: OAuth Google** (opcional para MVP inicial)
+- Crear proyecto en Google Cloud Console
+- Configurar OAuth credentials
+- Actualizar `.env.local` y Vercel con `GOOGLE_CLIENT_ID` y `GOOGLE_CLIENT_SECRET`
 
-Pasos:
-1. Ir a https://vercel.com/new
-2. Importar repo: `https://github.com/PachuAI/presskitar.git`
-3. Configurar proyecto:
-   - Framework Preset: Next.js
-   - Build Command: `npm run build`
-   - Output Directory: `.next`
-4. **NO deployar aún** (faltan variables de entorno)
-5. Obtener URL de preview para subtarea 4 (OAuth redirect)
+**Subtarea 6: Git branches** (opcional, podemos usar solo `main` por ahora)
+- Crear branch `develop`
+- Configurar estrategia: `main` (prod) + `develop` (staging)
 
-**Archivo a actualizar:**
-- `docs/fases/FASE_0_breakdown.md` línea 18: marcar checkbox `[x]`
-
-**Referencia:**
-Ver `docs/fases/FASE_0_breakdown.md` para contexto completo
+**Recomendación:** Saltear ambas por ahora y completar Fase 0 con lo que tenemos
 
 ---
 

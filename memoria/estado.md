@@ -9,7 +9,7 @@
 ## Fase Actual
 
 **Fase**: 0 - Setup de Infraestructura
-**Estado**: 🔄 EN PROGRESO (14% completado - 1/7 subtareas)
+**Estado**: 🔄 EN PROGRESO (71% completado - 5/7 subtareas)
 **Iniciada**: 2025-09-30
 
 ---
@@ -22,39 +22,52 @@
 
 ---
 
-## Última Sesión (2025-09-30)
+## Última Sesión (2025-10-01)
 
-✅ **Repositorio Git inicializado:**
-- Commit inicial con toda la documentación
-- Remote conectado: https://github.com/PachuAI/presskitar.git
-- Push exitoso a branch main
+✅ **Subtareas 2-3-5-7 completadas (71%):**
+- Proyecto Vercel creado y conectado a GitHub
+- Proyecto Supabase creado (preskit-ar-production)
+- Variables de entorno configuradas (Vercel + .env.local)
+- ESLint configurado (parser TypeScript + plugins)
+- Build local exitoso (npm run build)
+- Dev server funcionando (npm run dev)
+- Push a GitHub completado
 
-✅ **Fase 0 iniciada:**
-- Ejecutado `/fase start`
-- Generado `docs/fases/FASE_0_breakdown.md` con 7 subtareas
-- TodoList interno creado
+🔄 **Deploy en progreso:**
+- Vercel redeployando automáticamente
+- Variables de entorno configuradas en Vercel dashboard
+- Build debería pasar ahora
 
-✅ **Subtarea 1 completada (14%):**
-- Boilerplate integrado: `launch-mvp-stripe-nextjs-supabase`
-- Estructura completa copiada (app/, components/, config/, etc.)
-- Schema SQL base: `supabase/migrations/000_boilerplate_schema.sql`
-- Archivos de configuración listos (.env.example, tsconfig.json, etc.)
-
-⚠️ **Commit pendiente:**
-- Archivos del boilerplate en staging (sin commitear)
-- Mensaje sugerido: "feat(fase-0): integrar boilerplate launch-mvp-stripe-nextjs-supabase"
+⚠️ **Notas importantes:**
+- Boilerplate usa Next.js 15.1.3 (nuestra doc asume 14)
+- Stripe configurado con valores dummy (configurar en fase de pagos)
+- OAuth Google pendiente (Subtarea 4)
 
 ---
 
 ## Próximo Paso
 
-**Continuar Fase 0, Subtarea 2:**
-1. Completar commit pendiente (archivos en staging)
-2. Crear proyecto en Vercel
-3. Conectar Vercel con GitHub repo
+**Opciones:**
 
-Ver: `docs/fases/FASE_0_breakdown.md` línea 18
-Ver recap completo: `memoria/recaps/2025-09-30.md`
+1. **Verificar deploy de Vercel** (inmediato)
+   - Chequear que el build pase
+   - Obtener URL de producción
+
+2. **Completar Subtarea 4** (opcional): OAuth Google
+   - Crear proyecto en Google Cloud Console
+   - Configurar OAuth credentials
+   - Actualizar variables de entorno
+
+3. **Completar Subtarea 6** (opcional): Git branches
+   - Crear branch `develop`
+   - Configurar estrategia de branching
+
+4. **Finalizar Fase 0** (si deploy OK)
+   - Ejecutar `/fase complete`
+   - Commit de cierre de fase
+   - Avanzar a Fase 1
+
+Ver: `docs/fases/FASE_0_breakdown.md`
 
 ---
 
