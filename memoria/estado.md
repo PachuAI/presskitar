@@ -9,7 +9,7 @@
 ## Fase Actual
 
 **Fase**: 0 - Setup de Infraestructura
-**Estado**: 🔄 EN PROGRESO (0% completado)
+**Estado**: 🔄 EN PROGRESO (14% completado - 1/7 subtareas)
 **Iniciada**: 2025-09-30
 
 ---
@@ -24,34 +24,37 @@
 
 ## Última Sesión (2025-09-30)
 
-✅ **Sistema de Gestión de Fases configurado:**
-- Creado comando `/fase` para gestión de fases
-- Creado comando `/commit` para commits semánticos
-- Creado `docs/manual-uso-agentes-comandos.md` (workflow oficial)
-- Creado `.claude/CLAUDE.md` (reglas del proyecto)
-- Actualizado comando `/fase` con gestión de checkboxes
-- Creado `docs/estado-proyecto.json` (tracking técnico)
-- Estructura de `memoria/` y `docs/fases/` lista
+✅ **Repositorio Git inicializado:**
+- Commit inicial con toda la documentación
+- Remote conectado: https://github.com/PachuAI/presskitar.git
+- Push exitoso a branch main
 
-✅ **Planificación completada:**
-- Plan de Implementación v1.2 creado (26 fases)
-- 2 rondas de auditoría GPT5 completadas
-- 9 gaps corregidos
-- PRD y Arquitectura documentados
+✅ **Fase 0 iniciada:**
+- Ejecutado `/fase start`
+- Generado `docs/fases/FASE_0_breakdown.md` con 7 subtareas
+- TodoList interno creado
+
+✅ **Subtarea 1 completada (14%):**
+- Boilerplate integrado: `launch-mvp-stripe-nextjs-supabase`
+- Estructura completa copiada (app/, components/, config/, etc.)
+- Schema SQL base: `supabase/migrations/000_boilerplate_schema.sql`
+- Archivos de configuración listos (.env.example, tsconfig.json, etc.)
+
+⚠️ **Commit pendiente:**
+- Archivos del boilerplate en staging (sin commitear)
+- Mensaje sugerido: "feat(fase-0): integrar boilerplate launch-mvp-stripe-nextjs-supabase"
 
 ---
 
 ## Próximo Paso
 
-**Ejecutar `/fase start` para iniciar la Fase 0** y generar el breakdown de subtareas.
+**Continuar Fase 0, Subtarea 2:**
+1. Completar commit pendiente (archivos en staging)
+2. Crear proyecto en Vercel
+3. Conectar Vercel con GitHub repo
 
-La Fase 0 incluye:
-- Setup de Next.js 14
-- Configuración de Supabase
-- Variables de entorno
-- Primer build exitoso
-
-Ver: `docs/plan-implementacion.md` línea ~380
+Ver: `docs/fases/FASE_0_breakdown.md` línea 18
+Ver recap completo: `memoria/recaps/2025-09-30.md`
 
 ---
 

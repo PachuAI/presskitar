@@ -7,25 +7,49 @@
 
 ## 🔥 Inmediato (Siguiente Sesión)
 
-### 1. Implementar Subtarea 1 de Fase 0
+### 1. Completar Commit Pendiente ⚠️
 
-**Buscar y seleccionar boilerplate Next.js 14 + Supabase**
+**CRÍTICO**: Hay archivos en staging sin commitear
 
-Requisitos del boilerplate:
-- Next.js 14 con App Router
-- TypeScript configurado
-- shadcn/ui compatible o pre-instalado
-- OAuth pre-configurado o fácil de integrar
+```bash
+# Ver archivos en staging
+git status
 
-Opciones a evaluar:
-1. `launch-mvp-stripe-nextjs-supabase` (ya documentado en ADR)
-2. Otros boilerplates populares en GitHub
+# Completar commit
+git commit -m "feat(fase-0): integrar boilerplate launch-mvp-stripe-nextjs-supabase"
 
-**Documento de referencia:**
-Ver `docs/ADR/boilerplate-elegido.md` para decisión previa
+# Push a remote
+git push origin main
+```
 
-**Breakdown completo:**
-Ver `docs/fases/FASE_0_breakdown.md` para todas las subtareas
+**Archivos en staging:**
+- Toda la estructura del boilerplate (app/, components/, etc.)
+- docs/fases/FASE_0_breakdown.md (nuevo)
+- docs/estado-proyecto.json (actualizado)
+- memoria/estado.md (actualizado)
+- memoria/proximos-pasos.md (actualizado)
+
+---
+
+### 2. Implementar Subtarea 2 de Fase 0
+
+**Crear proyecto en Vercel y conectar con GitHub**
+
+Pasos:
+1. Ir a https://vercel.com/new
+2. Importar repo: `https://github.com/PachuAI/presskitar.git`
+3. Configurar proyecto:
+   - Framework Preset: Next.js
+   - Build Command: `npm run build`
+   - Output Directory: `.next`
+4. **NO deployar aún** (faltan variables de entorno)
+5. Obtener URL de preview para subtarea 4 (OAuth redirect)
+
+**Archivo a actualizar:**
+- `docs/fases/FASE_0_breakdown.md` línea 18: marcar checkbox `[x]`
+
+**Referencia:**
+Ver `docs/fases/FASE_0_breakdown.md` para contexto completo
 
 ---
 

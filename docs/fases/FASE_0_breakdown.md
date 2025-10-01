@@ -15,14 +15,14 @@
 ## Subtareas
 
 - [x] 1. Buscar y seleccionar boilerplate Next.js 14 + Supabase (TypeScript, shadcn/ui compatible, OAuth)
-- [ ] 2. Crear proyecto en Vercel y conectar con GitHub repo
-- [ ] 3. Crear proyecto Supabase (preskit-ar-production) y obtener credenciales
+- [x] 2. Crear proyecto en Vercel y conectar con GitHub repo
+- [x] 3. Crear proyecto Supabase (preskit-ar-production) y obtener credenciales
 - [ ] 4. Configurar OAuth Google (Cloud Console + credenciales)
-- [ ] 5. Configurar variables de entorno (`.env.local` + Vercel dashboard + `.env.example`)
+- [x] 5. Configurar variables de entorno (`.env.local` + Vercel dashboard + `.env.example`)
 - [ ] 6. Setup Git (branches main/develop)
-- [ ] 7. Validar que todo funciona (npm install, npm run dev, preview deploy)
+- [x] 7. Validar que todo funciona (npm install, npm run dev, preview deploy)
 
-## Progreso: 1/7 (14%)
+## Progreso: 5/7 (71%)
 
 ---
 
